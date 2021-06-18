@@ -1,4 +1,3 @@
-# Assignment 1
 print('only enter good or bad!  <-')
 user_feeling = input('Hey, How are you today? ')
 user_feeling = user_feeling.lower().split(sep = " ")

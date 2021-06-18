@@ -1,4 +1,4 @@
-# Assignment 1 - Letter E
+# Letter E
 import turtle
 
 t = turtle.Turtle()

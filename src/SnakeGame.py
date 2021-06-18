@@ -79,10 +79,10 @@ def move():
 
 # Keyboard bindings
 window.listen()
-window.onkeypress(go_up, 'u')
-window.onkeypress(go_down, 'd')
-window.onkeypress(go_left, 'l')
-window.onkeypress(go_right, 'r')
+window.onkeypress(go_up, 'w')
+window.onkeypress(go_down, 's')
+window.onkeypress(go_left, 'a')
+window.onkeypress(go_right, 'd')
 
 # main loop
 while True:
