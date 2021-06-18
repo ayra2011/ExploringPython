@@ -5,13 +5,13 @@
 # **      **
 # ***    ***
 # **********
-y = '*'
-w = 5
+star = '*'
+num = 5
 for x in range(5):
-    print(w * y)
-    w -= 1
-z = '*'
-s = 1
+    print(num * star)
+    num -= 1
+stars = '*'
+nums = 1
 for x in range(4):
-    s += 1
-    print(s * z)
+    nums += 1
+    print(nums * stars)
