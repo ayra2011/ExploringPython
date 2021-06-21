@@ -5,7 +5,7 @@ from turtle import Turtle, Screen, Shape
 screen = Screen()
 
 # substitute 'subsample' for 'zoom' if you want to go smaller:
-larger = PhotoImage(file="../tenor.gif").zoom(5, 2)
+larger = PhotoImage(file="tenor.gif").zoom(5, 2)
 
 screen.addshape("larger", Shape("image", larger))
 
