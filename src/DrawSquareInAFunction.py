@@ -45,23 +45,20 @@ def square_circle_train():
         circle_count += 1
 
 
-for index in range(4):
+for index in range(8):
     square_circle_train()
     t.penup()
-    t.right(90)
+    if (0 == index%2):
+        t.right(90)
+    else:
+        t.left(90)
+        # Adjust by 20 to account for reverse bottom
+        t.forward(20)
     t.forward(20)
-    t.right(90)
-    t.forward(13)
-    t.pendown()
-
-    square_circle_train()
-    t.penup()
-    t.left(90)
-    t.forward(20)
-    # Adjust by 10 to account for reverse bottom
-    t.forward(20)
-    #Rest same
-    t.left(90)
+    if (0 == index % 2):
+        t.right(90)
+    else:
+        t.left(90)
     t.forward(13)
     t.pendown()
 
