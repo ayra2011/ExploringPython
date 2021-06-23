@@ -57,12 +57,13 @@ for index in range(4):
     square_circle_train()
     t.penup()
     t.left(90)
-    t.forward(40)
-    t.right(90)
     t.forward(20)
-    t.pendown()
+    # Adjust by 10 to account for reverse bottom
+    t.forward(20)
+    #Rest same
     t.left(90)
-
+    t.forward(13)
+    t.pendown()
 
 t.ht()
 
