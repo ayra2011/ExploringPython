@@ -54,19 +54,15 @@ for index in range(4):
     t.forward(13)
     t.pendown()
 
-    t.penup()
-    t.right(90)
-    t.forward(40)
-    t.left(90)
-    t.forward(13)
-    t.pendown()
     square_circle_train()
     t.penup()
+    t.left(90)
+    t.forward(40)
     t.right(90)
     t.forward(20)
-    t.right(90)
-    t.forward(13)
     t.pendown()
+    t.left(90)
+
 
 t.ht()
 
