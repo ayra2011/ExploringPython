@@ -4,7 +4,7 @@ t = turtle.Turtle()
 totCircleCnt = int(input('enter no. fo circles: '))
 t.speed(0)
 colours = ['red', 'orange', 'yellow', 'green', 'blue', 'violet', 'indigo']
-radius = 7
+radius = 7def
 t.pensize(15)
 for index in range(totCircleCnt):
     t.color(colours[index % 7])
