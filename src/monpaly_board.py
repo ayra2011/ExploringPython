@@ -1,3 +1,8 @@
+import platform
+import sys
+osName = platform.system()
+print(osName)
+
 import turtle
 t = turtle.Turtle()
 screen_mid_to_left = 930
@@ -59,6 +64,8 @@ def draw_rectangle(length, breadth):
 
 def train_horizontal():
     box_horizontal_count = 12
+    if "Darwin" == osName:
+        box_horizontal_count = 9
     for i in range(box_horizontal_count):
         if i == 0 or i == (box_horizontal_count-1):
             draw_rectangle(rectangle_length, rectangle_length)
