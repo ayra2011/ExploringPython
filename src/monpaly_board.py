@@ -1,16 +1,25 @@
+import turtle
 import tkinter
+
+# screen_width, screen_height = turtle.screensize()
+# print("orig: ", screen_height, screen_width)
+t = turtle.Turtle()
+
+# make full screen by default
+drawing_area = turtle.Screen()
+drawing_area.setup(width=.999, height=.999)
+# screen_width, screen_height = drawing_area.screensize()
+# print("post screen.setup: ", screen_height, screen_width)
+
+# tkinter screen crete , read actual screen size, destroy (we could not find a good way of doing this with turtle - yet)
 root = tkinter.Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
-print(screen_height, screen_width)
+root.destroy()
+print("actual monitor size: ", screen_height, screen_width)
 
-import platform
-osName = platform.system()
-print(osName)
-
-import turtle
-t = turtle.Turtle()
-screen_mid_to_left = 930
+buffer_from_edge = 30
+screen_mid_to_left = (screen_width / 2) - buffer_from_edge  # 930
 space_between_rectangles = 5
 
 
@@ -69,7 +78,7 @@ def draw_rectangle(length, breadth):
 
 def train_horizontal():
     box_horizontal_count = 12
-    if "Darwin" == osName:
+    if screen_width != 1920:
         box_horizontal_count = 9
     for i in range(box_horizontal_count):
         if i == 0 or i == (box_horizontal_count-1):
