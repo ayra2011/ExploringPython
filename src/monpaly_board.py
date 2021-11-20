@@ -1,5 +1,10 @@
+import tkinter
+root = tkinter.Tk()
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+print(screen_height, screen_width)
+
 import platform
-import sys
 osName = platform.system()
 print(osName)
 
