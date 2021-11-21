@@ -18,12 +18,14 @@ screen_height = root.winfo_screenheight()
 root.destroy()
 print("actual monitor size: ", screen_height, screen_width)
 
-buffer_from_edge = 50
-screen_mid_to_left_or_right = (screen_width / 2) - buffer_from_edge  # 930
 
-screen_mid_to_top_or_bottom = (screen_height / 2) - buffer_from_edge  # 493 (540 - 30 = 510)
+buffer_from_edge_left_or_right = 30
+screen_mid_to_left_or_right = (screen_width / 2) - buffer_from_edge_left_or_right  # 930
 
-space_between_rectangles = 5
+buffer_from_edge_top_or_bottom = 60
+screen_mid_to_top_or_bottom = (screen_height / 2) - buffer_from_edge_top_or_bottom  # 493 (540 - 60 = 480)
+
+space_between_rectangles = 3
 
 
 def move_top_left():
