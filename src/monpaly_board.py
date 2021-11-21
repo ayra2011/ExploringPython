@@ -18,20 +18,21 @@ screen_height = root.winfo_screenheight()
 root.destroy()
 print("actual monitor size: ", screen_height, screen_width)
 
-buffer_from_edge = 30
-screen_mid_to_left = (screen_width / 2) - buffer_from_edge  # 930
-space_between_rectangles = 5
+buffer_from_edge = 50
+screen_mid_to_left_or_right = (screen_width / 2) - buffer_from_edge  # 930
 
-screen_mid_to_top = 493
+screen_mid_to_top_or_bottom = (screen_height / 2) - buffer_from_edge  # 493 (540 - 30 = 510)
+
+space_between_rectangles = 5
 
 
 def move_top_left():
     t.setheading(0)
     t.penup()
     t.goto(0, 0)
-    t.bk(screen_mid_to_left)
+    t.bk(screen_mid_to_left_or_right)
     t.left(90)
-    t.fd(screen_mid_to_top)
+    t.fd(screen_mid_to_top_or_bottom)
     t.pendown()
 
 
@@ -39,9 +40,9 @@ def move_top_right():
     t.setheading(0)
     t.penup()
     t.goto(0, 0)
-    t.fd(screen_mid_to_left)
+    t.fd(screen_mid_to_left_or_right)
     t.left(90)
-    t.fd(screen_mid_to_top)
+    t.fd(screen_mid_to_top_or_bottom)
     t.pendown()
 
 
@@ -49,9 +50,16 @@ def move_bottom_left():
     t.setheading(0)
     t.penup()
     t.goto(0, 0)
-    t.bk(screen_mid_to_left)
+    t.bk(screen_mid_to_left_or_right)
     t.right(90)
-    t.fd(293)  # screen_mid_to_bottom
+    t.fd(screen_mid_to_top_or_bottom)  # old value: 293 (310 after accounting for the up move of 200 - square side)
+    t.pendown()
+
+
+def move_bottom_left_minus_square_side(square_side):
+    move_bottom_left()
+    t.penup()
+    t.bk(square_side)  # old value: 293 (310 after accounting for the up move of 200 - square side)
     t.pendown()
 
 
@@ -104,7 +112,7 @@ rectangle_length = 200
 rectangle_breadth = 140
 move_top_left()
 train_horizontal()
-move_bottom_left()
+move_bottom_left_minus_square_side(rectangle_length)
 train_horizontal()
 move_top_left()
 train_vertical(rectangle_breadth, rectangle_length)
@@ -119,6 +127,5 @@ t.pendown()
 # right vertical train
 train_vertical(rectangle_breadth, rectangle_length)
 t.ht()
-
 
 turtle.done()
