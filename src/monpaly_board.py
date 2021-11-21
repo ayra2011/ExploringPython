@@ -22,6 +22,8 @@ buffer_from_edge = 30
 screen_mid_to_left = (screen_width / 2) - buffer_from_edge  # 930
 space_between_rectangles = 5
 
+screen_mid_to_top = 493
+
 
 def move_top_left():
     t.setheading(0)
@@ -29,7 +31,7 @@ def move_top_left():
     t.goto(0, 0)
     t.bk(screen_mid_to_left)
     t.left(90)
-    t.fd(493)  # screen_mid_to_top
+    t.fd(screen_mid_to_top)
     t.pendown()
 
 
@@ -39,7 +41,7 @@ def move_top_right():
     t.goto(0, 0)
     t.fd(screen_mid_to_left)
     t.left(90)
-    t.fd(493)  # screen_mid_to_top
+    t.fd(screen_mid_to_top)
     t.pendown()
 
 
