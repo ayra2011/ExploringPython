@@ -27,6 +27,12 @@ screen_mid_to_top_or_bottom = (screen_height / 2) - buffer_from_edge_top_or_bott
 
 space_between_rectangles = 3
 
+rectangle_length = 200
+rectangle_breadth = 140
+
+box_horizontal_count = 12
+box_vertical_count = 4
+
 
 def move_top_left():
     t.setheading(0)
@@ -89,9 +95,6 @@ def draw_rectangle(length, breadth):
 
 
 def train_horizontal():
-    box_horizontal_count = 12
-    if screen_width != 1920:
-        box_horizontal_count = 9
     for i in range(box_horizontal_count):
         if i == 0 or i == (box_horizontal_count-1):
             draw_rectangle(rectangle_length, rectangle_length)
@@ -103,15 +106,13 @@ def train_horizontal():
 
 def train_vertical(length, breadth):
     rectangle_downward_space(breadth)  # just for the first box in vertical train we need breadth distance
-    for i in range(4):
+    for i in range(box_vertical_count):
         draw_rectangle(breadth, length)
         rectangle_downward_space(length)
 
 
 # Program starts here 😊!!
 t.speed(0)
-rectangle_length = 200
-rectangle_breadth = 140
 move_top_left()
 train_horizontal()
 move_bottom_left_minus_square_side(rectangle_length)
