@@ -27,11 +27,17 @@ screen_mid_to_top_or_bottom = (screen_height / 2) - buffer_from_edge_top_or_bott
 
 space_between_rectangles = 3
 
+# we know available screen area to draw the monopoly horizontal and vertical trains:
+# horizontal screen space : screen_mid_to_left_or_right * 2
+# vertical screen space : screen_mid_to_top_or_bottom *  2
+# use above information to fit the board :
+# - 10 horizontal rectangles each on top and bottom edge of available apace
+# - 6 vertical rectangles each on left and right edge of available apace
 rectangle_length = 200
 rectangle_breadth = 140
 
-box_horizontal_count = 12
-box_vertical_count = 4
+box_horizontal_count = 10
+box_vertical_count = 6
 
 
 def move_top_left():
