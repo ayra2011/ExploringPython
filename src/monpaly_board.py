@@ -13,17 +13,17 @@ drawing_area.setup(width=.999, height=.999)
 
 # tkinter screen crete , read actual screen size, destroy (we could not find a good way of doing this with turtle - yet)
 root = tkinter.Tk()
-screen_width = root.winfo_screenwidth()
-screen_height = root.winfo_screenheight()
+screen_breath = root.winfo_screenwidth()
+screen_length = root.winfo_screenheight()
 root.destroy()
-print("actual monitor size: ", screen_height, screen_width)
+print("actual monitor size: ", screen_length, screen_breath)
 
 
 buffer_from_edge_left_or_right = 20
-screen_mid_to_left_or_right = (screen_width / 2) - buffer_from_edge_left_or_right  # 930
+screen_mid_to_left_or_right = (screen_breath / 2) - buffer_from_edge_left_or_right  # 930
 
 buffer_from_edge_top_or_bottom = 80
-screen_mid_to_top_or_bottom = (screen_height / 2) - buffer_from_edge_top_or_bottom  # 493 (540 - 60 = 480)
+screen_mid_to_top_or_bottom = (screen_length / 2) - buffer_from_edge_top_or_bottom  # 493 (540 - 60 = 480)
 
 space_between_rectangles = 3
 
@@ -33,11 +33,35 @@ space_between_rectangles = 3
 # use above information to fit the board :
 # - 10 horizontal rectangles each on top and bottom edge of available apace
 # - 6 vertical rectangles each on left and right edge of available apace
-rectangle_length = 200
-rectangle_breadth = 140
+rectangle_length = 0
+rectangle_breadth = 0
 
-box_horizontal_count = 10
-box_vertical_count = 6
+box_horizontal_count = 0
+box_vertical_count = 2
+
+
+def compute_rectangle_breadth_and_length():
+    square_adjusted_rectangle_count = box_vertical_count + 4  # 2 squares , each double the size of rectangle
+    space_between_rectangle_count = box_vertical_count + 1  # squares on both edges of rectangle train
+    rectangle_breadth_reserved_for_space = space_between_rectangle_count * space_between_rectangles
+    buffer_from_edge_top_plus_bottom = buffer_from_edge_top_or_bottom * 2
+    remaining_length = screen_length - buffer_from_edge_top_plus_bottom - rectangle_breadth_reserved_for_space
+    global rectangle_breadth, rectangle_length
+    rectangle_breadth = remaining_length / square_adjusted_rectangle_count
+    rectangle_length = rectangle_breadth * 2
+
+
+def compute_box_vertical_count():
+    space_plus_rectangle_width = rectangle_breadth + space_between_rectangles
+    global box_horizontal_count
+    buffer_left_plus_right = buffer_from_edge_left_or_right * 2
+    # 4 for squares on both edges of train
+    box_horizontal_count = int(((screen_breath-buffer_left_plus_right) / space_plus_rectangle_width)) - 4
+
+
+def compute_variables():
+    compute_rectangle_breadth_and_length()
+    compute_box_vertical_count()
 
 
 def move_top_left():
@@ -118,6 +142,7 @@ def train_vertical(length, breadth):
 
 
 # Program starts here 😊!!
+compute_variables()
 t.speed(0)
 move_top_left()
 train_horizontal()
