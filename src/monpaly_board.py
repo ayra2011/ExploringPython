@@ -25,6 +25,8 @@ screen_mid_to_left_or_right = (screen_breath / 2) - buffer_from_edge_left_or_rig
 buffer_from_edge_top_or_bottom = 80
 screen_mid_to_top_or_bottom = (screen_length / 2) - buffer_from_edge_top_or_bottom  # 493 (540 - 60 = 480)
 
+reminder_buffer_from_edge_on_right = 0
+
 space_between_rectangles = 3
 
 # we know available screen area to draw the monopoly horizontal and vertical trains:
@@ -36,8 +38,10 @@ space_between_rectangles = 3
 rectangle_length = 0
 rectangle_breadth = 0
 
+# includs squares
 box_horizontal_count = 0
-box_vertical_count = 2
+# excludes squares
+box_vertical_count = 5
 
 
 def compute_rectangle_breadth_and_length():
@@ -55,8 +59,10 @@ def compute_box_vertical_count():
     space_plus_rectangle_width = rectangle_breadth + space_between_rectangles
     global box_horizontal_count
     buffer_left_plus_right = buffer_from_edge_left_or_right * 2
-    # 4 for squares on both edges of train
-    box_horizontal_count = int(((screen_breath-buffer_left_plus_right) / space_plus_rectangle_width)) - 4
+    # - 2 as squares on both edges of train are double size
+    box_horizontal_count = int(((screen_breath-buffer_left_plus_right) / space_plus_rectangle_width)) - 2
+    global reminder_buffer_from_edge_on_right
+    reminder_buffer_from_edge_on_right = ((screen_breath-buffer_left_plus_right) % space_plus_rectangle_width) + 2 * space_between_rectangles
 
 
 def compute_variables():
@@ -78,7 +84,7 @@ def move_top_right():
     t.setheading(0)
     t.penup()
     t.goto(0, 0)
-    t.fd(screen_mid_to_left_or_right)
+    t.fd(screen_mid_to_left_or_right - reminder_buffer_from_edge_on_right)
     t.left(90)
     t.fd(screen_mid_to_top_or_bottom)
     t.pendown()
