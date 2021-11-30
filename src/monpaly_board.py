@@ -38,7 +38,7 @@ space_between_rectangles = 3
 rectangle_length = 0
 rectangle_breadth = 0
 
-# includs squares
+# includes squares
 box_horizontal_count = 0
 # excludes squares
 box_vertical_count = 5
