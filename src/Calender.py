@@ -13,8 +13,9 @@ months_dict = {'january': '01', 'jan': '01', '01': '01', '1': '01',
                'november': '11', 'nov': '11', '11': '11',
                'december': '12', 'dec': '12', '12': '12'}
 
-user_input = input('DO you want program to run: ')
-if user_input == 'y' or user_input == 'yes':
+user_input = 'y'
+while user_input.lower() == 'y' or user_input.lower() == 'yes':
+    user_input = input('DO you want program to run: ')
     month = input('Enter any month: ')
     yyyy = 0
     mm = 0
@@ -25,5 +26,3 @@ if user_input == 'y' or user_input == 'yes':
         print('sorry', month, 'is not a month!')
         exit(1)
     print(calendar.month(yyyy, mm))
-else:
-    exit(1)
