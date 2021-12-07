@@ -15,7 +15,7 @@ months_dict = {'january': '01', 'jan': '01', '01': '01', '1': '01',
 
 user_input = 'y'
 while user_input.lower() == 'y' or user_input.lower() == 'yes':
-    user_input = input('DO you want program to run: ')
+    user_input = input('Do you want program to run: ')
     month = input('Enter any month: ')
     yyyy = 0
     mm = 0
