@@ -4,14 +4,18 @@
 # # Hint: you only need one for loop and 3 variables
 
 
-# num_list = [5, 4, 7, 3, 1, 6, 8, 2, 9]
-# num_of_num = len(num_list)
-# um_num = 0
-# for index in range(num_of_num):
-#     um_num += num_list[index]
-# average = (um_num / num_of_num)
-# print('Sum =', um_num)
-# print('Average =', average)
+def find_sum(num_list):
+    list_len = len(num_list)
+    sum_of_list = 0
+    for idx in range(list_len):
+        sum_of_list += num_list[idx]
+    print('Sum =', sum_of_list, 'list =', num_list)
+    return sum_of_list
+
+
+def find_average(num_list):
+    average = (find_sum(num_list) / len(num_list))
+    print('Average =', average)
 
 
 def find_min(num_list):
@@ -27,10 +31,8 @@ def find_min(num_list):
                 break
             i += 1
         if is_smallest:  # is_smallest == True
-            print("the number", (num_list[idx]), "is the smallest in list: ", num_list)
+            print("the number", (num_list[idx]), "is the smallest in list", num_list)
             break
-        # else:
-        #     print("the number", (num_list[idx]), "is NOT the smallest in list: ", num_list)
 
 
 user_number_count = int(input('how many numbers you want to input? '))
@@ -43,3 +45,5 @@ else:
     print("sorry request can't be proceeded as", user_number_count, "is invalid, pls enter number that is > 3")
 
 find_min(um_num_list)
+find_sum(um_num_list)
+find_average(um_num_list)
