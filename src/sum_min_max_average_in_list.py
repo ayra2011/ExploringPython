@@ -14,10 +14,23 @@
 # print('Average =', average)
 
 
-def return_smaller(num_list):
-    for i in range(user_number_count):
-        if num_list[i] <= um_num_list:
-            print(num_list)
+def find_min(num_list):
+    for idx in range(len(num_list)):
+        times_to_compare = len(num_list) - 1
+        is_smallest = True
+        i = idx
+        while i < times_to_compare:
+            if num_list[idx] <= num_list[i + 1]:
+                pass
+            else:
+                is_smallest = False
+                break
+            i += 1
+        if is_smallest:  # is_smallest == True
+            print("the number", (num_list[idx]), "is the smallest in list: ", num_list)
+            break
+        # else:
+        #     print("the number", (num_list[idx]), "is NOT the smallest in list: ", num_list)
 
 
 user_number_count = int(input('how many numbers you want to input? '))
@@ -25,11 +38,8 @@ um_num_list = []
 
 if user_number_count >= 4:
     for index in range(user_number_count):
-        um_num_list = (int(input('Enter num:  ')))
+        um_num_list.append(int(input('Enter num:  ')))
 else:
     print("sorry request can't be proceeded as", user_number_count, "is invalid, pls enter number that is > 3")
-    user_number_count = int(input('how many numbers you want to input? '))
-    for index in range(user_number_count):
-        um_num_list = (int(input('Enter num:  ')))
 
-return_smaller(um_num_list)
+find_min(um_num_list)
