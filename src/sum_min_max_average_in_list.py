@@ -35,6 +35,23 @@ def find_min(num_list):
             break
 
 
+def find_max(num_list):
+    for idx in range(len(num_list)):
+        times_to_compare = len(num_list) - 1
+        is_biggest = False
+        i = idx
+        while i < times_to_compare:
+            if num_list[idx] >= num_list[i + 1]:
+                pass
+            else:
+                is_biggest = True
+                break
+            i += 1
+        if not is_biggest:
+            print("the number", (num_list[idx]), "is the biggest in list", num_list)
+            break
+
+
 user_number_count = int(input('how many numbers you want to input? '))
 um_num_list = []
 
@@ -45,5 +62,6 @@ else:
     print("sorry request can't be proceeded as", user_number_count, "is invalid, pls enter number that is > 3")
 
 find_min(um_num_list)
+find_max(um_num_list)
 find_sum(um_num_list)
 find_average(um_num_list)
