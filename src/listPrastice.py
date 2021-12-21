@@ -6,6 +6,7 @@ for index in range(numOfTimesProgramWillRun):
     userDefinedList.append(numInList)
 
 num = 0
+timesToLoop = 0
 
 if numOfTimesProgramWillRun % 2 >= 1:
     timesToLoop = numOfTimesProgramWillRun // 2 + 1
