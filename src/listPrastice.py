@@ -7,9 +7,9 @@ for index in range(numOfTimesProgramWillRun):
 
 num = 0
 if numOfTimesProgramWillRun % 2 >= 1:
-    for i in range(numOfTimesProgramWillRun // 2):
+    for i in range(numOfTimesProgramWillRun // 2 + 1):
         numInListRevers = userDefinedList[num]
-        num += 3
+        num += 2
         userDefinedListRevers.append(numInListRevers)
 else:
     for i in range(numOfTimesProgramWillRun // 2):
