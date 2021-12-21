@@ -6,11 +6,16 @@ for index in range(numOfTimesProgramWillRun):
     userDefinedList.append(numInList)
 
 num = 0
-
-for i in range(numOfTimesProgramWillRun // 2):
-    numInListRevers = userDefinedList[num]
-    num += 2
-    userDefinedListRevers.append(numInListRevers)
+if numOfTimesProgramWillRun % 2 >= 1:
+    for i in range(numOfTimesProgramWillRun // 2):
+        numInListRevers = userDefinedList[num]
+        num += 3
+        userDefinedListRevers.append(numInListRevers)
+else:
+    for i in range(numOfTimesProgramWillRun // 2):
+        numInListRevers = userDefinedList[num]
+        num += 2
+        userDefinedListRevers.append(numInListRevers)
 
 print(userDefinedList)
 print(userDefinedListRevers)
