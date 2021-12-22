@@ -20,7 +20,5 @@ for i in range(numOfTimesMyProgramWillRun):
     num2 = num3
     fibonacciSeries.append(num3)
 
-index = 0
 for idx in range(numOfTimesMyProgramWillRun // 2):
-    print(userDifiendList[fibonacciSeries[index]])
-    index += 1
+    print(userDifiendList[fibonacciSeries[idx]])
