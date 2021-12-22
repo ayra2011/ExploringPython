@@ -13,11 +13,14 @@ print(userDifiendList)
 num1 = 0
 num2 = 1
 
+fibonacciSeries = []
 for i in range(numOfTimesMyProgramWillRun):
-    print(num1)
-    print(num2)
     num3 = num1 + num2
-    print(num3)
     num1 = num2
     num2 = num3
+    fibonacciSeries.append(num3)
 
+index = 0
+for idx in range(numOfTimesMyProgramWillRun // 2):
+    print(userDifiendList[fibonacciSeries[index]])
+    index += 1
