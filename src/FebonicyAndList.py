@@ -10,11 +10,14 @@ for index in range(numOfTimesMyProgramWillRun):
 
 print(userDifiendList)
 
-num1 = userDifiendList[0]
-num2 = userDifiendList[1]
+num1 = 0
+num2 = 1
 
 for i in range(numOfTimesMyProgramWillRun):
+    print(num1)
+    print(num2)
     num3 = num1 + num2
     print(num3)
     num1 = num2
     num2 = num3
+
